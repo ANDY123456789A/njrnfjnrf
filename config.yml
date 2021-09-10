@@ -1,0 +1,34 @@
+Log:
+  Level: none # Log level: none, error, warning, info, debug 
+  AccessPath: # ./access.Log
+  ErrorPath: # ./error.log
+DnsConfigPath: # ./dns.json Path to dns config
+ConnetionConfig:
+  Handshake: 4 # Handshake time limit, Second
+  ConnIdle: 30 # Connection idle time limit, Second
+  UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
+  DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
+  BufferSize: 64 # The internal cache size of each connection, kB 
+Nodes:
+-
+     PanelType: "V2board" # Panel type: SSpanel, V2board
+     ApiConfig:
+       ApiHost: "https://airport.lightwind2.ml"
+       ApiKey: "re989384h349rh3urh"
+       NodeID: 25
+       NodeType: Trojan # Node type: V2ray, Shadowsocks, Trojan
+       Timeout: 30 # Timeout for the api request
+       EnableVless: false # Enable Vless for V2ray Type, Remote configuration first
+       EnableXTLS: true # Enable XTLS for V2ray and Trojan, emote configuration first
+       RuleListPath: /etc/XrayR/check.txt
+     ControllerConfig:
+       ListenIP: 0.0.0.0 # IP address you want to listen
+       UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
+       EnableDNS: true # Use custom DNS config, Please ensure that you set the dns.json well
+       CertConfig:
+         CertMode: dns # Option about how to get certificate: none, file, http, dns
+         CertDomain: "hk.ednejdnwj.online" # Domain to cert
+         Provider: cloudflare # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
+         Email: andychumchikit@gmail.com
+         DNSEnv: # DNS ENV option used by DNS provider
+           CF_DNS_API_TOKEN: vp2ydYVeoJf7jjKZ_mf2NJrNOenV3HQE5PsgYQUZ
